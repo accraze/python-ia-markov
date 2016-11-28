@@ -3,7 +3,7 @@ import re
 import shutil
 import unittest
 
-from ia_markov import MarkovModel
+from ia_markov import MarkovModel, POSMarkov
 
 
 class TestMarkov(unittest.TestCase):
@@ -15,7 +15,7 @@ class TestMarkov(unittest.TestCase):
         m = MarkovModel()
         m.train_model('FuturistManifesto')
         assert isinstance(m.model.make_sentence(), str)
-        # p = MarkovModel()
+        p = POSMarkov()
         # p.train_model('FuturistManifesto')
         # assert isinstance(p.model.make_sentence(), str)
         os.chdir(os.pardir)
