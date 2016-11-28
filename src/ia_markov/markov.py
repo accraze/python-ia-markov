@@ -5,7 +5,7 @@ import re
 import markovify
 import nltk
 from internetarchive import download
-from markovify.util import split_into_sentences
+from markovify.splitters import split_into_sentences
 
 
 class MarkovModel(object):
