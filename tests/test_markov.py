@@ -3,8 +3,8 @@ import re
 import shutil
 import unittest
 
-from ia_markov import MarkovModel, POSMarkov
-
+from ia_markov import MarkovModel
+from ia_markov import POSMarkov
 
 class TestMarkov(unittest.TestCase):
 
