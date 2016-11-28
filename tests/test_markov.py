@@ -1,10 +1,10 @@
-import unittest
-import re
-
 import os
+import re
 import shutil
+import unittest
 
 from ia_markov import MarkovModel
+
 
 class TestMarkov(unittest.TestCase):
 
@@ -40,4 +40,3 @@ class TestMarkov(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
