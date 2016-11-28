@@ -100,7 +100,7 @@ class POSifiedText(markovify.Text):
 
     def word_split(self, sentence):
         words = re.split(self.word_split_pattern, sentence)
-        print words
+        print (words)
         try:
             words = ["::".join(tag) for tag in nltk.pos_tag(words)]
         except:
