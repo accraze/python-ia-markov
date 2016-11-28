@@ -65,6 +65,7 @@ setup(
         # eg: 'keyword1', 'keyword2', 'keyword3',
     ],
     install_requires=[
+        'markovify==0.4.3', 'nltk==3.2.1', 'internetarchive==1.1.0'
         # eg: 'aspectlib==1.1.1', 'six>=1.7',
     ],
     extras_require={
