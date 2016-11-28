@@ -61,7 +61,7 @@ setup(
         'Topic :: Utilities',
     ],
     keywords=[
-        # eg: 'keyword1', 'keyword2', 'keyword3',
+        'markov', 'text', 'internetarchive', 'model', 'nlp', 'corpus'
     ],
     install_requires=[
         'markovify==0.4.3', 'nltk==3.2.1', 'internetarchive==1.1.0'
