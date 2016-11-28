@@ -15,9 +15,9 @@ class TestMarkov(unittest.TestCase):
         m = MarkovModel()
         m.train_model('FuturistManifesto')
         assert isinstance(m.model.make_sentence(), str)
-        p = MarkovModel()
-        p.train_model('FuturistManifesto')
-        assert isinstance(p.model.make_sentence(), str)
+        # p = MarkovModel()
+        # p.train_model('FuturistManifesto')
+        # assert isinstance(p.model.make_sentence(), str)
         os.chdir(os.pardir)
         shutil.rmtree('tmp', ignore_errors=True)
 
