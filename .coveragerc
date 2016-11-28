@@ -1,0 +1,16 @@
+[paths]
+source =
+   src/ia_markov
+   */site-packages/ia_markov
+
+[run]
+branch = true
+source =
+    ia_markov
+    tests
+parallel = true
+
+[report]
+show_missing = true
+precision = 2
+omit = *migrations*
