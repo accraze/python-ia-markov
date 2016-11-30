@@ -73,6 +73,19 @@ Installation
 
     pip install ia-markov
 
+Quick Start
+===========
+
+::
+
+    import ia_markov
+    
+    m = MarkovModel()
+    m.train_model('FuturistManifesto')
+    m.model.make_sentence()
+    'blah blah blah blah blah'
+
+
 Documentation
 =============
 
