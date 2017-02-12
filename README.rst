@@ -83,7 +83,7 @@ Quick Start
     m = MarkovModel()
     m.train_model('FuturistManifesto')
     m.model.make_sentence()
-    'blah blah blah blah blah'
+    'Courage, audacity, and revolt will be drunk with love and admiration for us.'
 
 
 Documentation
