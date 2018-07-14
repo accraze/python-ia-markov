@@ -103,7 +103,7 @@ class POSifiedText(markovify.Text):
         print(words)
         try:
             words = ["::".join(tag) for tag in nltk.pos_tag(words)]
-        except:
+        except Exception:
             pass
         return words
 
