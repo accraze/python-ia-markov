@@ -23,10 +23,6 @@ Overview
     :alt: Travis-CI Build Status
     :target: https://travis-ci.org/accraze/python-ia-markov
 
-.. |appveyor| image:: https://ci.appveyor.com/api/projects/status/github/accraze/python-ia-markov?branch=master&svg=true
-    :alt: AppVeyor Build Status
-    :target: https://ci.appveyor.com/project/accraze/python-ia-markov
-
 .. |requires| image:: https://requires.io/github/accraze/python-ia-markov/requirements.svg?branch=master
     :alt: Requirements Status
     :target: https://requires.io/github/accraze/python-ia-markov/requirements/?branch=master
@@ -79,7 +75,7 @@ Quick Start
 ::
 
     import ia_markov
-    
+
     m = MarkovModel()
     m.train_model('FuturistManifesto')
     m.model.make_sentence()
