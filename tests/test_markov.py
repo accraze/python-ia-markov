@@ -1,7 +1,7 @@
+import glob
 import os
 import re
 import shutil
-import glob
 import unittest
 from unittest.mock import patch
 
