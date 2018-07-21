@@ -24,7 +24,7 @@ def read(*names, **kwargs):
 
 setup(
     name='ia-markov',
-    version='0.1.1',
+    version='0.1.2',
     license='BSD',
     description='A Markov model trained on Internet Archive text files.',
     long_description='%s\n%s' % (
