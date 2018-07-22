@@ -58,7 +58,7 @@ Overview
 
 .. end-badges
 
-A Markov model trained on Internet Archive text files.
+Create Markov models trained on Internet Archive text files.
 
 * Free software: BSD license
 
@@ -74,7 +74,7 @@ Quick Start
 
 ::
 
-    import ia_markov
+    from ia_markov import Composer
 
     m = MarkovModel()
     m.train_model('FuturistManifesto')
