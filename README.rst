@@ -74,7 +74,7 @@ Quick Start
 
 ::
 
-    from ia_markov import Composer
+    from ia_markov import MarkovModel
 
     m = MarkovModel()
     m.train_model('FuturistManifesto')
