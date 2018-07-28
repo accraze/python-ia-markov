@@ -36,7 +36,11 @@ class TestMarkov(unittest.TestCase):
         with patch('ia_markov.MarkovModel', MockModel):
             m = MarkovModel()
             m.train_model('FuturistManifesto')
-            assert isinstance(m.model.make_sentence(), str)
+            sent = None
+            while not sent:
+                sent = m.model.make_sentence()
+            self.assertTrue(sent)
+            assert isinstance(sent, str)
 
     def test_clean_sentences(self):
         # test single regex pattern
