@@ -2,6 +2,12 @@
 Changelog
 =========
 
+0.2.0 (2018-7-29)
+-----------------------------------------
+
+* Added ability to set custom hidden state sizes
+* Fix flaky model test
+
 0.1.3 (2018-7-22)
 -----------------------------------------
 
