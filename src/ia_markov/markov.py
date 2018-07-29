@@ -15,10 +15,11 @@ class MarkovModel(object):
     on an Internet Archive text file.
     """
 
-    def __init__(self, exclude=None):
+    def __init__(self, exclude=None, state_size=2):
         self.archive_name = None
         self.exclude = exclude
         self.model = None
+        self.state_size = state_size
 
     def train_model(self, archive_name):
         """
@@ -78,7 +79,7 @@ class MarkovModel(object):
         Assign markovify.Text
         as model
         """
-        self.model = markovify.Text(text)
+        self.model = markovify.Text(text, state_size=self.state_size)
 
 
 class POSMarkov(MarkovModel):
@@ -88,7 +89,7 @@ class POSMarkov(MarkovModel):
         Assign part of speech tagged markov
         to model.
         """
-        self.model = POSifiedText(text)
+        self.model = POSifiedText(text, state_size=self.state_size)
 
 
 class POSifiedText(markovify.Text):
