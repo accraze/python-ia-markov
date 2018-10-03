@@ -1,12 +1,11 @@
 import glob
 import os
 import re
-import shutil
 import unittest
+
 from unittest.mock import patch
 
 from ia_markov import MarkovModel
-from ia_markov import POSMarkov
 
 
 class MockModel(MarkovModel):
@@ -30,8 +29,6 @@ class MockModel(MarkovModel):
 
 
 class TestMarkov(unittest.TestCase):
-
-
     def test_model(self):
         with patch('ia_markov.MarkovModel', MockModel):
             m = MarkovModel()
@@ -41,6 +38,27 @@ class TestMarkov(unittest.TestCase):
                 sent = m.model.make_sentence()
             self.assertTrue(sent)
             assert isinstance(sent, str)
+
+    @patch(
+        'ia_markov.markov.split_into_sentences'
+    )
+    def test_sentence_split_without_exclude(self, split_into_sentences):
+        m = MarkovModel()
+        split_into_sentences.return_value = ['a', 'b', 'c']
+
+        self.assertListEqual(m.sentence_split('MockTest'), ['a', 'b', 'c'])
+        split_into_sentences.assert_called_with('MockTest')
+
+    def test_sentence_split_with_exclude(self):
+        with patch.object(
+            MarkovModel, '_clean_sentences', new=(
+                lambda self, sentences: ['MockReturn']
+            )
+        ):
+            regex = re.compile(r'[0-9]*^.*?\s[A-Z]*\s[A-Z]*')
+            m = MarkovModel(exclude=regex)
+
+            self.assertListEqual(m.sentence_split('MockTest'), ['MockReturn'])
 
     def test_clean_sentences(self):
         # test single regex pattern
@@ -58,6 +76,7 @@ class TestMarkov(unittest.TestCase):
         m = MarkovModel(exclude=reg_list)
         cleaned = m._clean_sentences(sentences)
         self.assertEquals(len(cleaned), 0)
+
 
 if __name__ == '__main__':
     unittest.main()
