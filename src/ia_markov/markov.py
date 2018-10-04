@@ -3,7 +3,7 @@ import os
 import re
 
 import markovify
-import nltk
+import spacy
 from internetarchive import download
 from markovify.splitters import split_into_sentences
 
@@ -98,15 +98,12 @@ class POSifiedText(markovify.Text):
     to use part-of-speech tagging
     on training text.
     """
+    def __init__(self, nlp=None, *args, **kwargs):
+        super(POSifiedText, self).__init__(*args, **kwargs)
+        self.nlp = nlp or spacy.load("en")
 
     def word_split(self, sentence):
-        words = re.split(self.word_split_pattern, sentence)
-        print(words)
-        try:
-            words = ["::".join(tag) for tag in nltk.pos_tag(words)]
-        except Exception:
-            pass
-        return words
+        return ["::".join((word.orth_, word.pos_)) for word in self.nlp(sentence)]
 
     def word_join(self, words):
         sentence = " ".join(word.split("::")[0] for word in words)
