@@ -81,6 +81,22 @@ class MarkovModel(object):
         """
         self.model = markovify.Text(text, state_size=self.state_size)
 
+    def make_sentence(self, length=None):
+        """
+        Return the random generated sentence, based on the trained model
+
+        :param length: Option maximum length of the sentence
+        :return:
+        """
+        if length is not None and type(length) is int:
+            sent = self.model.make_short_sentence(length)
+            if sent is None:
+                print("Error: maximum length too short.")
+            else:
+                return sent
+        else:
+            return self.model.make_sentence()
+
 
 class POSMarkov(MarkovModel):
 
