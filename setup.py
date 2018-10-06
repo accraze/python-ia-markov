@@ -5,6 +5,7 @@ from __future__ import print_function
 
 import io
 import re
+import subprocess
 from glob import glob
 from os.path import basename
 from os.path import dirname
@@ -13,6 +14,13 @@ from os.path import splitext
 
 from setuptools import find_packages
 from setuptools import setup
+from setuptools.command.install import install
+
+
+class spacy_en_models(install):
+    def run(self):
+        install.run(self)
+        subprocess.call("python -m spacy download en", shell=True)
 
 
 def read(*names, **kwargs):
@@ -57,7 +65,7 @@ setup(
         'markov', 'text', 'internetarchive', 'model', 'nlp', 'corpus'
     ],
     install_requires=[
-        'markovify==0.7.1', 'nltk==3.3.0', 'internetarchive==1.8.1'
+        'markovify==0.7.1', 'spacy==2.0.12', 'internetarchive==1.8.1'
         # eg: 'aspectlib==1.1.1', 'six>=1.7',
     ],
     extras_require={
@@ -65,4 +73,5 @@ setup(
         #   'rst': ['docutils>=0.11'],
         #   ':python_version=="2.6"': ['argparse'],
     },
+    cmdclass={'install_en_models': spacy_en_models},
 )
