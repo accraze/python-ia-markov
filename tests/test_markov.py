@@ -2,9 +2,7 @@ import glob
 import os
 import re
 import unittest
-
 from unittest.mock import patch
-
 from ia_markov import MarkovModel
 
 
