@@ -65,7 +65,7 @@ setup(
         'markov', 'text', 'internetarchive', 'model', 'nlp', 'corpus'
     ],
     install_requires=[
-        'markovify==0.7.1', 'spacy==2.0.12', 'internetarchive==1.8.1'
+        'markovify==0.7.1', 'spacy==2.0.18', 'internetarchive==1.8.1'
         # eg: 'aspectlib==1.1.1', 'six>=1.7',
     ],
     extras_require={
